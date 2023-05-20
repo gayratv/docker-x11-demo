@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/playwright:next-jammy
 WORKDIR /node/
-ADD src.tar ./*.json ./
+#ADD src.tar ./*.json ./
+ADD ./src/index.ts ./*.json ./
 
 RUN npm ci
 RUN #npm ci --omit=dev
@@ -17,4 +18,4 @@ ENV PATH /node/node_modules/.bin:$PATH
 #CMD ["sh"]
 #CMD ["node", "index.mjs"]
 #CMD ["sleep", "infinity"]
-CMD ["ts-node", "./src/index.ts"]
+CMD ["ts-node", "./index.ts"]
