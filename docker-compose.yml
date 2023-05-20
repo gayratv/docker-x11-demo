@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  firefox:
+    build:
+      context: .
+      # Имя Docker-файла из которого будет собран образ
+      dockerfile: Dockerfile
+    ipc: host
+#    networks:
+#      - custom_net
+    env_file:
+      - .env_server_local
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+
+#networks:
+#  custom_net:
+#    driver: host
